@@ -12,6 +12,7 @@ message = "Hello from Pygame Zero!"
 alien = Actor('alien')
 alien.pos = 100, 56
 
+
 def draw():
     screen.clear()
     screen.fill((128, 30, 30))
@@ -23,10 +24,12 @@ def draw():
     )
     alien.draw()
 
+
 def update():
     alien.left += 2
     if alien.left > WIDTH:
         alien.right = 0
+
 
 def on_mouse_down(pos):
     if alien.collidepoint(pos):
@@ -38,9 +41,10 @@ def set_alien_hurt():
     sounds.eep.play()
     clock.schedule_unique(set_alien_normal, 1.0)
 
+
 def set_alien_normal():
     alien.image = 'alien'
 
+
 if __name__ == "__main__":
     pgzrun.go()
-
